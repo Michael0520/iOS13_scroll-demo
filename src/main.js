@@ -23,8 +23,9 @@ button.addEventListener("click", (e) => {
   dialog.classList.remove("invisible");
 });
 
-body.addEventListener("click", () => {
+body.addEventListener("click", (event) => {
   if (!isDialogOpen) return;
+  if (event.target === dialog || dialog.contains(event.target)) return;
   isDialogOpen = false;
   dialog.classList.add("invisible");
   if (isMobile) {
