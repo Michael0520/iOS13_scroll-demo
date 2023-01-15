@@ -34,3 +34,11 @@ body.addEventListener("click", (event) => {
     body.classList.remove("dialog-open");
   }
 });
+
+window.addEventListener("touchmove", stopTouchmove, { passive: false });
+
+function stopTouchmove(e) {
+  if (isDialogOpen) {
+    e.preventDefault();
+  }
+}
